@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -10,18 +11,17 @@ int main()
     while (1)
     {
         printf("szoveg: ");
+        // fgets(szoveg, 1024, stdin);
         scanf("%s", &szoveg);
-        szoveg[strlen(szoveg) - 1] = '\0';
+        // szoveg[strlen(szoveg) - 1] = '\0';
 
-        if (strcmp(szoveg, "*") == 0)
+        if (strlen(szoveg) == 1 && szoveg[0] == '*')
         {
             break;
         }
 
-        if (isalnum(szoveg))
-        {
-            osszeg += atoi(szoveg);
-        }
+        osszeg += atoi(szoveg);
     }
+    printf("%d", osszeg);
     return 0;
 }
